@@ -635,6 +635,12 @@ function! s:update_GistID(id) abort
     call setline('.', line . ' ' . a:id)
     let ret = 1
   endif
+  if search('%GistID%')
+    let line = getline('.')
+    let line = substitute(line, '%GistID%', 'GistID: '.a:id, '')
+    call setline('.', line)
+    let ret = 1
+  endif
   call winrestview(view)
   return ret
 endfunction
