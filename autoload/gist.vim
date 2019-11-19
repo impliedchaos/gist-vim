@@ -201,7 +201,7 @@ function! s:GistList(gistls, page) abort
     let url = url . '?page=' . a:page
   endif
 
-  setlocal modifiable nolist nonumber bh=wipe buftype=nofile
+  setlocal modifiable nolist nonumber bh=wipe buftype=nofile noswapfile
   let old_undolevels = &undolevels
   let oldlines = []
   silent %d _
