@@ -479,6 +479,7 @@ function! s:GistGet(gistid, clipboard) abort
       if (&ft ==# '' && gist_detect_filetype == 1) || gist_detect_filetype == 2
         call s:GistDetectFiletype(a:gistid)
       endif
+      redraw | echomsg 'Done: https://gist.github.com/'.a:gistid
       if a:clipboard
         if exists('g:gist_clip_command')
           exec 'silent w !'.g:gist_clip_command
